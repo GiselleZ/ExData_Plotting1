@@ -1,0 +1,11 @@
+Sys.setlocale("LC_ALL", "English")
+png(file="plot3.png",width = 480,height = 480)
+powerdata$Sub_metering_1 = as.numeric(as.character(powerdata$Sub_metering_1))
+powerdata$Sub_metering_2 = as.numeric(as.character(powerdata$Sub_metering_2))
+powerdata$Sub_metering_3 = as.numeric(as.character(powerdata$Sub_metering_3))
+
+plot(powerdata$Timestamp,powerdata$Sub_metering_1,type="l",xlab="",ylab = "Energy Sub Meter")
+points(powerdata$Timestamp,powerdata$Sub_metering_2,type="l",col='red')
+points(powerdata$Timestamp,powerdata$Sub_metering_3,type="l",col='blue')
+legend("topright",lty=1,lwd=2,col=c("black","red","blue"),legend = c("Sub_Metering_1","Sub_Metering_2","Sub_Metering_2"))
+dev.off()
